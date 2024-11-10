@@ -4,7 +4,7 @@ import 'dart:io';
 import 'dart:isolate';
 import 'dart:math';
 import 'dart:ui';
-import 'package:arpa/widgets.dart';
+import 'package:wARP/widgets.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -317,8 +317,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
+        colorScheme: 
+	  ColorScheme.fromSeed(
+	    seedColor: Colors.blue,
+	    //brightness: Brightness.dark,
+	  ),
+	  useMaterial3: true,
       ),
       home: const MyHomePage(title: 'wARP Discovery'),
     );
@@ -374,7 +378,10 @@ class _MyHomePageState extends State<MyHomePage> {
       ? centralNotice("No network interface found!") 
       : Scaffold(
             appBar: AppBar(
-              title: Text(widget.title),
+              title: Text(
+		widget.title,
+              style: Theme.of(context).textTheme.headlineSmall,
+	      ),
               actions: [
                 DropdownButton(
                   value: selectedInterface,

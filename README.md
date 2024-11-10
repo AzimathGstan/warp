@@ -5,7 +5,7 @@ Though Despite it's name. One can't really send ARP in unrooted android device.
 So it's just a simple network scanner based on ping.
 
 NOTICE: This is a "homework" project. Therefore I suggest you only use it
-for learning (if you can find anything useful here).
+for learning (if you *REALLY* can find anything useful here).
 
 用來掃描本地網路的APP。
 儘管名子裡有ARP，雖然本身的計畫中有ARP的部份（可能會在Linux裡實現）。
