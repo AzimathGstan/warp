@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/services.dart';
 import 'package:nsd/nsd.dart';
-import 'package:swipe_to/swipe_to.dart';
 
 //class LoadingDialog extends StatelessWidget {
 //	final String text;
@@ -166,6 +165,16 @@ class ScanList extends StatefulWidget {
     listController.currentState!.insertItem(index);
     ss.insert(index, card);
   }
+
+  void clear() {
+    listController.currentState!.removeAllItems(
+      (index, animation) => 
+      ScannedDeviceCard(
+	ipv4: ""
+      ),
+    );
+    ss.clear();
+  }
 }
 
 class _scanListState extends State<ScanList> {
@@ -229,7 +238,7 @@ class _WNInterfaceState extends State<WNInterface> {
 
   @override
   Widget build(BuildContext context) {
-    print("building...");
+    //print("building...");
     
     return
       RefreshIndicator(
@@ -249,14 +258,16 @@ class _WNInterfaceState extends State<WNInterface> {
       	  ),
       	onRefresh: () async {
 
-	  final discovery = await startDiscovery('_http._tcp');
-	  discovery.addListener(() {
-	    discovery.services.forEach((s){
-	      print(s);
-	    });
-	  });
+	  //final discovery = await startDiscovery('_http._tcp');
+	  //discovery.addLis
+	  //discovery.addListener(() {
+	  //  discovery.services.forEach((s){
+	  //    print("discoveries: ${s}");
+	  //  });
+	  //});
 
-	  await stopDiscovery(discovery);
+
+	  widget.scanList.clear();
 
 	  final netaddr = widget.ipv4.split('.').sublist(0, 3).join('.');;
 	  final int hostaddr = int.parse(widget.ipv4.split('.').last);
@@ -275,9 +286,9 @@ class _WNInterfaceState extends State<WNInterface> {
 	    if (i == hostaddr) continue;
 	    await Future.delayed(const Duration(milliseconds: 80));
 	    scan("${netaddr}.${i}").then((value) {
-	      print("scanned ${value}");
+	      //print("scanned ${value}");
 	      Map<String, dynamic> json = jsonDecode(value);
-	      print("scanned ${value}");
+	      //print("scanned ${value}");
 
 	      if (json["exist"] == "true")
 		setState(() {
@@ -291,6 +302,8 @@ class _WNInterfaceState extends State<WNInterface> {
 		});
 	    });
 	  }
+
+	  //await stopDiscovery(discovery);
       	}
       );
   }

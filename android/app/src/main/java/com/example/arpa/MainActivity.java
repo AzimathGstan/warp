@@ -87,13 +87,13 @@ public class MainActivity extends FlutterActivity {
 	}
 
 	private void ping(String ipv4, MethodChannel.Result result){
-		System.out.println(String.format("ping %s", ipv4));
+		//System.out.println(String.format("ping %s", ipv4));
 		try {
 			// prevent too fast
 			Process ps = Runtime.getRuntime()
 					.exec(String.format("ping -w 1 -c 1 %s", ipv4));
 			if(!ps.waitFor(1000, TimeUnit.MILLISECONDS)){
-				System.out.println(String.format("giveup on %s", ipv4));
+				//System.out.println(String.format("giveup on %s", ipv4));
 				ps.destroy();
 				result.success("{\"exist\":\"false\"}");
 			} else {
@@ -107,7 +107,7 @@ public class MainActivity extends FlutterActivity {
 					String[] tkn = ln.split("\\s+");
 					String ttl = tkn[5].split("\\=+")[1];
 					String delay = tkn[6].split("\\=+")[1];
-					System.out.println(String.format("GOT TTL: %s DELAY: %s", ttl, delay));
+					//System.out.println(String.format("GOT TTL: %s DELAY: %s", ttl, delay));
 					result.success(
 							String.format(
 									"{\"exist\":\"true\", \"ttl\":\"%s\", \"delay\":\"%s\"}",
