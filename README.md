@@ -11,7 +11,8 @@ for learning (if you can find anything useful here).
 儘管名子裡有ARP，雖然本身的計畫中有ARP的部份（可能會在Linux裡實現）。
 但我們的目標還是以Android為主。
 目前Android在非Root的情況下，就我目前認知，只有ping可以正常使用。
-
+ARP並不能夠穩定的發出，且基本上無Root完全不能接收。
+ICMP也是，但是ping指令是少數能夠在執行著無Root的情況下可以收發ICMP封包。
 
 ## Features 功能
 
