@@ -1,16 +1,8 @@
-# arpa
+# wARP
 
-A new Flutter project.
+An APP that scan the local network.
+Though Despite it's name. One can't really send ARP in unrooted android device.
+So it's just a simple network scanner based on ping.
+
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
